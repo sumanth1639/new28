@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create an IAM User using CloudFormation
+
+Resources:
+  MyIAMUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: 'NEWUSER31'
+      Tags:
+        - Key: 'Environment'
+          Value: 'Development'
+
+Outputs:
+  IAMUserName:
+    Description: 'Name of the IAM User'
+    Value: !Ref MyIAMUser
+
+  IAMUserArn:
+    Description: 'ARN of the IAM User'
+    Value: !GetAtt MyIAMUser.Arn
